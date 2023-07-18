@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer type="module" src="./assets/js/main.js"></script>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <script defer src="./assets/js/bg-page.js"></script>
+  <title>Document</title>
+  <style id="customTheme">
+
+  </style>
+</head>
+<body >
+  <a class="btn btn-danger ms-2 mt-4" href="./index.html">INICIO</a>
+  <div class="d-flex justify-content-end mt-2 me-4">
+    <h4 class="me-4 text-light">Selector de tema y Fuente</h4>
+    <div>
+      <button class="btn btn-primary" onclick="cambiarTema('Azul')">Azul</button>
+      <button class="btn btn-success me-2 ms-2" onclick="cambiarTema('Verde')">Verde</button>
+      <button class="btn btn-danger" onclick="cambiarTema('Rojo')">Rojo</button>
+    </div>
+  </div>
+  
+  <!---------------------------- FORMULARIO DEPARTAMENTO ---------------------------->
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col ">
+        <form id="myFormDep">
+          <div class="d-flex form-floating">
+            <input type="text" class="form-control bg-dark bg-opacity-75 text-light" id="mombreDep" placeholder="mombreDep" name="nomDepartamento" required>
+            <label for="mombreDep" class="text-light">Nombre del Departamento</label> 
+            <button class=" btn w-25" type="submit" id="button">
+              <img src="./assets/img/add.png" alt="" class="w-25">.
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-------------------------------- TABLA DE DEPARTAMENTOS -------------------------------->
+  <div class="container mt-5 bg-dark bg-opacity-75 rounded-3">
+    <div class="row">
+      <div class="col-12">
+        <table class="table" >
+          <thead>
+            <tr class=" encabezadoTabla bg-info bg-opacity-75 text-danger  ">
+              <th class="col-1 text-center">Id</th>
+              <th class="col-5 text-center">Departamento</th>
+              <th class="col-2 text-center">Ver Ciudades</th>
+              <th class="col-2 text-center">Editar Departamento</th>
+              <th class="col-2 text-center">Eliminar Departamento</th>
+            </tr>
+          </thead>
+          <tbody id="tablaDepart"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  
+<!------------------------------------------MODAL ACTUALIZAR DEPARTAMENTO------------------------------------------>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title ms-5 text-danger" id="staticBackdropLabel">Editar Ruta</h3>
+        <!-- <img src="/assets/img/ruta.png" alt="ruta" class="w-25 h-25 ms-5"> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body bg-danger d-flex justify-content-center">
+        <form id="formActDep">
+          <div class="row">
+            <div class="col-sm-8">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="nuevoDep" placeholder="nuevoDep" name="nomDepartamento" required>
+                <label for="nuevoDep">Nombre del Departamento</label>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-floating">
+                <input type="text" class="form-control form-control-sm text-center" id="idDepar" placeholder="idDepar" name="DepartamentosId" readonly>
+                <label for="idDepar">Id Ruta</label>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary"  id="btnActualizar">Actualizar</button>
+          </div>
+        </form> 
+      </div> 
+    </div>
+  </div>
+</div> 
+
+  <!--------------------------------- MODAL CIUDADES -------------------------------->
+  <div class="modal fade " id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-scrollable modal-xl">
+      <div class="modal-content">
+        <h1 class="text-center">GESTIONAR PUNTOS </h1>
+        <div class="modal-body bg-info >
+          
+          <div class="container">
+            <div class="row">
+              <div class="cols-sm-12">
+                <form id="myFormCiud" class="d-flex">
+                  <div class="d-flex form-floating">
+                    <input type="text" class="form-control " id="nombrePunto" placeholder="nombrePunto" name="nomCiudad" required>
+                    <label for="nombrePunto">Nombre de Punto</label> 
+                  </div>  
+                  <div class="d-flex form-floating ">
+                    <input type="text" class="form-control"  id="imgUrl" name="imagen" placeholder="imgUrl">
+                    <label for="imgUrl">URL Imagen</label>
+                  </div> 
+                  <div class="form-floating">
+                    <input type="text" class="form-control form-control-sm text-center" id="idDep" placeholder="DepartamentosId" name="DepartamentosId" readonly>
+                    <label for="idDep">Id Dep</label>
+                  </div>
+                  <button class=" btn ms-3" type="submit" id="buttonPunto"><img src="./assets/img/add.png" alt="" class="w-25">.</button>
+                </form>
+              </div>
+            </div>
+          </div> 
+          <div class="container mt-5 bg-body">
+            <div class="row">
+              <div class="col-12">
+                <table class="table" >
+                  <thead>
+                    <tr class="bg-danger  ">
+                      <th class="col-1 text-center">Id</th>
+                      <th class="col-3 text-center">Nombre Ciudad</th>
+                      <th class="col-2 text-center">Imagen</th>
+                      <th class="col-2 text-center">Temperatura</th>
+                      <th class="col-2 text-center">Estado Clima</th>
+                      <th class="col-2 text-center">Editar Ciudad</th>
+                      <th class="col-2 text-center">Eliminar Ciudad</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tablaCiudades"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <!------------------------------------------MODAL ACTUALIZAR CIUDAD------------------------------------------>
+  <div class="modal fade" id="staticBack" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBack" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title ms-5 text-danger">EDITAR CIUDAD</h3>
+          <!-- <img src="/assets/img/gps.png" alt="ruta" class="w-25 h-25 ms-5"> -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-danger d-flex justify-content-center">
+          <form id="formActCiud">
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="nombreCiudad" placeholder="nombreCiudad" name="nomCiudad" required>
+                  <label for="nombreCiudad">Nombre Ciudad</label>
+                </div>
+              </div>
+              <div class="col-sm-8 mt-2 mb-2">
+                <div class="form-floating">
+                  <input type="text" class="form-control form-control-sm text-center" id="urlImg" placeholder="urlImg" name="imagen">
+                  <label for="urlImg">URL imagen</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-floating">
+                <input type="text" class="form-control form-control-sm text-center" id="idCiud" placeholder="idPunto" name="" readonly>
+                <label for="idCiud">Id Ciudad</label>
+            </div>
+            <div class="mt-3 d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary" id="btnActCiudad">Actualizar</button>
+            </div>
+          </form> 
+        </div> 
+      </div>
+    </div>
+  </div>
+</body>
+</html>

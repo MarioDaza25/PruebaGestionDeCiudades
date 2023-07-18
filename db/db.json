@@ -1,0 +1,53 @@
+{
+  "Departamentos": [
+    {
+      "id": 1,
+      "nomDepartamento": "Santander",
+      "DepartamentosId": "1"
+    },
+    {
+      "id": 2,
+      "nomDepartamento": "Cundinamarca"
+    },
+    {
+      "id": 3,
+      "nomDepartamento": "Boyaca"
+    },
+    {
+      "nomDepartamento": "Valle del Cauca",
+      "id": 5
+    }
+  ],
+  "Ciudades": [
+    {
+      "id": 1,
+      "nomCiudad": "Bucaramanga",
+      "DepartamentosId": 1,
+      "imagen": "https://colombia.com/bucaramanga.jpg",
+      "coordenadas": {
+        "lat": 4,
+        "lon": 72
+      }
+    },
+    {
+      "id": 2,
+      "nomCiudad": "Barrancabermeja",
+      "DepartamentosId": 1,
+      "imagen": "https://colombia.com/barranca.jpg",
+      "coordenadas": {
+        "lat": 4,
+        "lon": 72
+      }
+    },
+    {
+      "id": 3,
+      "nomCiudad": "Bogotá",
+      "DepartamentosId": 2,
+      "imagen": "https://colombia.com/bogota.jpg",
+      "coordenadas": {
+        "lat": 4,
+        "lon": 72
+      }
+    }
+  ]
+}
