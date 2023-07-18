@@ -7,7 +7,6 @@ function cambiarTema(miTema) {
     customTheme.textContent = `
       body {
         background-color: #25599B;
-        color: #333;
         font-size: 20px
       }
 
@@ -23,7 +22,6 @@ function cambiarTema(miTema) {
     customTheme.textContent = `
       body {
         background-color: #FF1700;
-        color: #f4f4f4;
         font-size: 15px
       }
     `;
